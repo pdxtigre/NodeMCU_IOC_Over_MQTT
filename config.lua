@@ -14,7 +14,7 @@ dev_cfg={
 	app="mqtt_ioc",
 	wifi={
 		ssid= "BeaversHome",
-		pwd= "LifeIsBeautiful@4225"
+		pwd= "*********"
 	},
 	mqtt={
 		host="TheShadowsHouse.IoT",
