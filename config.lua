@@ -13,8 +13,8 @@ dev_cfg={
 	rev="3",
 	app="mqtt_ioc",
 	wifi={
-		ssid= "BeaversHome",
-		pwd= "*********"
+		ssid= "<your WiFi SSID>",
+		pwd= "<your WiFi password>"
 	},
 	mqtt={
 		host="TheShadowsHouse.IoT",
@@ -28,7 +28,6 @@ dev_cfg={
 	bootTime={sec=0, usec=0, rate=0},
 	debug=true,
 	start=true,
-	flashMod=false,
 	heartbeat={
 		enabled=true,
 		interval=5000,
