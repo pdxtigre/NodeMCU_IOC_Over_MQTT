@@ -2,7 +2,11 @@
 IO control over MQTT with NodeMCU
 
 ## Introduction
-This is one of my projects that I use *[NodeMCU](https://nodemcu.com)* development board to control my sprinkler system.  NodeMCU's are very popular and used widely in making IoT applications due to WiFi-enabled, small-form-factor, low-power-consumption, low-cost and easy-to-work-with characteristics.  In this application, I use the specific model ESP-12E with ESP8266 that you can buy on Amazon for less than $5 a piece.  The choice of using the node modules with the target hardware as an RTU rather than using a Raspberry Pi is straight forward.  The Pi itself works best at the middle tier to control and collect the data from/to the nodes and provide a higher level of interface via web or other smart-home interfaces like Apple HomeKit, Amazon Alexa, or Google Assitant.
+This is one of my projects that I use *[NodeMCU](https://nodemcu.com)* development board to control my sprinkler system.  NodeMCU's are very popular and used widely in making IoT applications due to WiFi-enabled, small-form-factor, low-power-consumption, low-cost and easy-to-work-with characteristics.  
+
+<img src="/docs/images/ESP-12E-ESP8266-pinout-diagram.jpg" width="400" title="NodeMCU ESP8266"/>
+
+In this application, I use the specific model ESP-12E with ESP8266 that you can buy on Amazon for less than $5 a piece.  The choice of using the node modules with the target hardware as an RTU rather than using a Raspberry Pi is straight forward.  The Pi itself works best at the middle tier to control and collect the data from/to the nodes and provide a higher level of interface via web or other smart-home interfaces like Apple HomeKit, Amazon Alexa, or Google Assitant.
 
 The node modules are used to control directly the sprinkler valves or get the input signal from the sensors such as soil moisture or rain sensors.  The nodes communicate with the Raspberry Pi over MQTT.  In general, we maintain 3 channels (topics):
 - `cmd` Control channel for the incoming contorl command from the Raspberry Pi.
@@ -16,7 +20,7 @@ The MQTT broker could reside on the Raspberry Pi or on a separate server using *
 ## Configuration
 The device config is stored in `config.lua` file with general device information and separate sections for specific purposes.  The file also contains a minimum set of helper functions to retrieve the config, a try/catch handler, and the logging method for debugging.
 
-```
+```lua
 dev_cfg={
 	id="ESP8266.Shadow",
 	dob="04/18/2021",
@@ -36,7 +40,7 @@ dev_cfg={
 ```
 
 ### WiFi Credentials
-```
+```lua
 	wifi={
 		ssid= "<your WiFi SSID>",
 		pwd= "<your WiFi password>"
@@ -45,7 +49,7 @@ dev_cfg={
 
 ### Signal List
 Specify the inputs and outputs for your node module.
-```
+```lua
 	io={
 		digital=
 		{	outputs = {
@@ -65,7 +69,7 @@ Specify the inputs and outputs for your node module.
 
 ### MQTT
 Specify the MQTT endpoint setup
-```
+```lua
         mqtt={
 		host="TheShadowsHouse.IoT",
 		port=1883,
