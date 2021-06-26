@@ -1,0 +1,1 @@
+call nodemcu-tool upload config.lua --compile

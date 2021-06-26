@@ -1,0 +1,140 @@
+-----------------------------------------------------------------
+References
+-----------------------------------------------------------------
+Techniques for Reducing RAM and SPIFFS footprint
+How do I minimise the footprint of running application?
+*https://nodemcu.readthedocs.io/en/dev/lua-developer-faq/
+
+MASSIVE MEMORY OPTIMIZATION: FLASH FUNCTIONS! (+SPI SSD1306) (DP Whittaker)
+*https://www.esp8266.com/viewtopic.php?f=19&t=1940
+
+-----------------------------------------------------------------
+Heap Traces
+-----------------------------------------------------------------
+
+NodeMCU 3.0.0.0 built with Docker provided by frightanic.com
+	branch: release
+	commit: 136e09739b835d6dcdf04034141d70ab755468c6
+	release: 3.0.0-release_20210201
+	release DTS: 202102010145
+	SSL: false
+	build type: float
+	LFS: 0x0 bytes total capacity
+	modules: adc,bit,dht,file,gpio,gpio_pulse,http,i2c,mqtt,net,node,ow,pwm,rtctime,sjson,sntp,spi,tls,tmr,uart,wifi
+ build 2021-04-20 04:02 powered by Lua 5.1.4 on SDK 3.0.1-dev(fce080e)
+ESP8266.Shadow dob: 04/18/2021, rev: 3, app: mqtt_ioc, heap: 33656
+ESP8266.Shadow Flash mod enabled..31416
+ESP8266.Shadow You have 3 seconds to abort startup..33416
+> ESP8266.Shadow WiFi: setting up..
+ESP8266.Shadow WiFi: connecting to BeaversHome
+ESP8266.Shadow WiFi: connected
+ESP8266.Shadow WiFi: got IP: 192.168.2.127, subnet mask: 255.255.255.0, gateway: 192.168.2.1
+ESP8266.Shadow WiFi: connected, IP: 192.168.2.127
+ESP8266.Shadow Sync'ing time with NTP server..
+ESP8266.Shadow Starting main application mqtt_ioc 29440
+ESP8266.Shadow Initializing IO board..
+ESP8266.Shadow Setting: 2 mode: 1
+ESP8266.Shadow Setting: 3 mode: 1
+ESP8266.Shadow Setting: 0 mode: 1
+ESP8266.Shadow Setting: 1 mode: 1
+ESP8266.Shadow Setting: 6 mode: 1
+ESP8266.Shadow Setting: 5 mode: 1
+ESP8266.Shadow Setting: 4 mode: 1
+ESP8266.Shadow IO board initialization complete
+ESP8266.Shadow Initializing MQTT client..20264
+ESP8266.Shadow Starting MQTT client..19048
+ESP8266.Shadow Connecting to MQTT broker..
+ESP8266.Shadow Connected to MQTT broker..23120
+ESP8266.Shadow Subscribed successfully to: /TheShadowsHouse/IoT/cmd
+ESP8266.Shadow Sending heartbeat for the 1st time..25456
+
+-----------------------------------------------------------------
+NodeMCU 3.0.0.0 built with Docker provided by frightanic.com
+	branch: release
+	commit: 136e09739b835d6dcdf04034141d70ab755468c6
+	release: 3.0.0-release_20210201
+	release DTS: 202102010145
+	SSL: false
+	build type: float
+	LFS: 0x0 bytes total capacity
+	modules: adc,bit,dht,file,gpio,gpio_pulse,http,i2c,mqtt,net,node,ow,pwm,rtctime,sjson,sntp,spi,tls,tmr,uart,wifi
+ build 2021-04-20 04:02 powered by Lua 5.1.4 on SDK 3.0.1-dev(fce080e)
+ESP8266.Shadow dob: 04/18/2021, rev: 3, app: mqtt_ioc, heap: 33712
+ESP8266.Shadow Flash mod enabled..31512
+ESP8266.Shadow You have 3 seconds to abort startup..33512
+> ESP8266.Shadow WiFi: setting up..
+ESP8266.Shadow WiFi: connecting to BeaversHome
+ESP8266.Shadow WiFi: connected
+ESP8266.Shadow WiFi: got IP: 192.168.2.127, subnet mask: 255.255.255.0, gateway: 192.168.2.1
+ESP8266.Shadow WiFi: connected, IP: 192.168.2.127
+ESP8266.Shadow Sync'ing time with NTP server..
+ESP8266.Shadow Starting main application mqtt_ioc 29616
+ESP8266.Shadow Initializing IO board..
+ESP8266.Shadow Setting: 2 mode: 1
+ESP8266.Shadow Setting: 3 mode: 1
+ESP8266.Shadow Setting: 0 mode: 1
+ESP8266.Shadow Setting: 1 mode: 1
+ESP8266.Shadow Setting: 6 mode: 1
+ESP8266.Shadow Setting: 5 mode: 1
+ESP8266.Shadow Setting: 4 mode: 1
+ESP8266.Shadow IO board initialization complete
+ESP8266.Shadow Initializing MQTT client..20496
+ESP8266.Shadow Starting MQTT client..19288
+ESP8266.Shadow Connecting to MQTT broker..
+ESP8266.Shadow Connected to MQTT broker..23200
+ESP8266.Shadow Subscribed successfully to: /TheShadowsHouse/IoT/cmd
+ESP8266.Shadow Sending heartbeat for the 1st time..25696
+
+-----------------------------------------------------------------
+NodeMCU 3.0.0.0 built with Docker provided by frightanic.com
+	branch: release
+	commit: 136e09739b835d6dcdf04034141d70ab755468c6
+	release: 3.0.0-release_20210201
+	release DTS: 202102010145
+	SSL: false
+	build type: float
+	LFS: 0x0 bytes total capacity
+	modules: adc,bit,dht,file,gpio,gpio_pulse,http,i2c,mqtt,net,node,ow,pwm,rtctime,sjson,sntp,spi,tls,tmr,uart,wifi
+ build 2021-04-20 04:02 powered by Lua 5.1.4 on SDK 3.0.1-dev(fce080e)
+ESP8266.Shadow dob: 04/18/2021, rev: 3, app: mqtt_ioc, heap: 34096
+ESP8266.Shadow Flash mod enabled..31912
+ESP8266.Shadow You have 3 seconds to abort startup..33896
+> ESP8266.Shadow WiFi: setting up..
+ESP8266.Shadow WiFi: connecting to BeaversHome
+ESP8266.Shadow WiFi: connected
+ESP8266.Shadow WiFi: got IP: 192.168.2.127, subnet mask: 255.255.255.0, gateway: 192.168.2.1
+ESP8266.Shadow WiFi: connected, IP: 192.168.2.127
+ESP8266.Shadow Sync'ing time with NTP server..
+ESP8266.Shadow Starting main application mqtt_ioc 29904
+ESP8266.Shadow Initializing IO board..
+ESP8266.Shadow Setting: 2 mode: 1
+ESP8266.Shadow Setting: 3 mode: 1
+ESP8266.Shadow Setting: 0 mode: 1
+ESP8266.Shadow Setting: 1 mode: 1
+ESP8266.Shadow Setting: 6 mode: 1
+ESP8266.Shadow Setting: 5 mode: 1
+ESP8266.Shadow Setting: 4 mode: 1
+ESP8266.Shadow IO board initialization complete
+ESP8266.Shadow Initializing MQTT client..20736
+ESP8266.Shadow Starting MQTT client..19520
+ESP8266.Shadow Connecting to MQTT broker..
+ESP8266.Shadow Connected to MQTT broker..23592
+ESP8266.Shadow Subscribed successfully to: /TheShadowsHouse/IoT/cmd
+ESP8266.Shadow Sending heartbeat for the 1st time..25960
+
+-----------------------------------------------------------------
+Spot check over time
+-----------------------------------------------------------------
+21560
+removed json
+22128
+22616
+22120
+22128
+22383
+22368
+22128
+22096
+22512
+22368 after 48 hours
+21784 after 40 hours
