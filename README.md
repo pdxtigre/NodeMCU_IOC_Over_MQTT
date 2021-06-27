@@ -24,10 +24,11 @@ The MQTT broker could reside on the Raspberry Pi or on a separate server using *
 ## SSR Control Board
 The sprinkler valve solenoids are controlled by the SSR control board which interfaces directly with the node module.  The schematic is based on the idea from [Nich Fugal](http://makeatronics.blogspot.com/2013/06/24v-ac-solid-state-relay-board.html) on his makeatronics blog.  
 
-<img src="/docs/images/mcu-valve-solenoid-schematic.png" width="400" title="Sprinkler SSR Control Board"/>
+<img src="/docs/images/mcu-valve-solenoid-schematic.png" width="100%" title="Sprinkler SSR Control Board"/>
 
 There are a few tweaks in the design:
 - MOC3031 opto-couplers are used due to their zero-crossing switching capability to avoid EMI issues.
+- BTA12-600B used as the triacs for the sprinkler solenoids.  That could be used to operate higher voltage applications, in this case the Mains AC power.  Additional current limiting resitor and RC snubber are needed when dealing with the Mains.
 - All the current limiting resitors to the MOCs reduced to 100 ohms to enhance the system responsiveness as well as to accomodate the logic high voltage level (3.3 V) from the ESP8266.  The actual measured voltage is ~3.0 V.  This new design works for both voltage levels, 5.0 V (Raspberry Pi or similar) and 3.3 V (NodeMCU ESP12-E) as the operating forward current is 15 mA to 60 mA.
 - Additional channels are added to accommodate the actual number of zones for your sprinkler system.  I have 6 solenoids to control, plus I want to add a separate channel to control the overall AC power supply to the sprinkler system.  That helps to cut off the power completely when the system is not in used, except the microcontroller that runs 24/7.
 
