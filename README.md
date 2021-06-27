@@ -17,6 +17,22 @@ The MQTT broker could reside on the Raspberry Pi or on a separate server using *
 
 ![Home Automation System Overview](/docs/images/home-automation-system.png)
 
+``Apple Home Kit``<br/>
+<img src="/docs/images/HAP1.png" width="200" title="Sprinler Control via Apple Home - Yard View"/>
+<img src="/docs/images/HAP2.png" width="200" title="Sprinler Control via Apple Home - Sprinkler Status"/>
+
+## SSR Control Board
+The sprinkler valve solenoids are controlled by the SSR control board which interfaces directly with the node module.  The schematic is based on the idea from [Nich Fugal](http://makeatronics.blogspot.com/2013/06/24v-ac-solid-state-relay-board.html) on his makeatronics blog.  
+
+<img src="/docs/images/mcu-valve-solenoid-schematic.png" width="400" title="Sprinkler SSR Control Board"/>
+
+There are a few tweaks in the design:
+- MOC3031 opto-couplers are used due to their zero-crossing switching capability to avoid EMI issues.
+- All the current limiting resitors to the MOCs reduced to 100 ohms to enhance the system responsiveness as well as to accomodate the logic high voltage level (3.3 V) from the ESP8266.  The actual measured voltage is ~3.0 V.  This new design works for both voltage levels, 5.0 V (Raspberry Pi or similar) and 3.3 V (NodeMCU ESP12-E) as the operating forward current is 15 mA to 60 mA.
+- Additional channels are added to accommodate the actual number of zones for your sprinkler system.  I have 6 solenoids to control, plus I want to add a separate channel to control the overall AC power supply to the sprinkler system.  That helps to cut off the power completely when the system is not in used, except the microcontroller that runs 24/7.
+
+<img src="/docs/images/fairchild-moc303x-datasheet-excerpt.png" width="700" title="MOC3031 Datasheet - Operating Forward Current"/>
+
 ## Configuration
 The device config is stored in `config.lua` file with general device information and separate sections for specific purposes.  The file also contains a minimum set of helper functions to retrieve the config, a try/catch handler, and the logging method for debugging.
 
@@ -101,7 +117,14 @@ My two favorite tools are *[NodeMCU-Tool by Andi Dittrich](https://github.com/an
 - Eliminate all usage of the global variables except the global config; avoid upvalues to help garbage collecting.
 - Adopt the flash function technique to serialize the in-memory functions into flash-based functions to reduce the heap usage.
 
-### References
-#### Code optimization and techniques for Reducing RAM and SPIFFS footprint
+## References
+
+### Code optimization and techniques for Reducing RAM and SPIFFS footprint
 - *[How do I minimise the footprint of running application?](https://nodemcu.readthedocs.io/en/dev/lua-developer-faq/)*
 - *[MASSIVE MEMORY OPTIMIZATION: FLASH FUNCTIONS! (+SPI SSD1306) (DP Whittaker)](https://www.esp8266.com/viewtopic.php?f=19&t=1940)*
+
+### Node-Red
+- *[Apple HomeKit device simulation using node-red-contrib-homekit-bridged](https://github.com/NRCHKB/node-red-contrib-homekit-bridged/wiki)*
+
+### Hardware Interface
+- *[24V AC Solid State Relay Board By Nich Fugal](http://makeatronics.blogspot.com/2013/06/24v-ac-solid-state-relay-board.html)*
