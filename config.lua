@@ -28,6 +28,7 @@ dev_cfg={
 	bootTime={sec=0, usec=0, rate=0},
 	debug=true,
 	start=true,
+	flashMod=false,
 	heartbeat={
 		enabled=true,
 		interval=5000,
