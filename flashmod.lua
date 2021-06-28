@@ -19,7 +19,7 @@ function flash.flashMod(tbl)
 	})
 end
 
-if dev_cfg.flashMod then flash.flashMod(flash) end
+if (dev_cfg ~= nil and dev_cfg.flashMod) or (dev_cfg == nil) then flash.flashMod(flash) end
 flash = nil
 module = nil
 package = nil
