@@ -138,3 +138,15 @@ removed json
 22512
 22368 after 48 hours
 21784 after 40 hours
+
+-----------------------------------------------------------------
+-- power test API
+-- function main:check_input_power()
+-- 	if adc.force_init_mode(adc.INIT_VDD33) then
+-- 		node.restart()
+--		return -- don't bother continuing, the restart is scheduled
+--	end
+--	vdd = adc.readvdd33()
+--	log_debug("System voltage Vdd = "..vdd.." mV")
+-- end
+

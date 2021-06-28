@@ -59,15 +59,23 @@ function mc:do_heartbeat(content)
 			if cfg.heartbeat.enabled then
 				local payload = {}
 				cfg.heartbeat.ts.sec, cfg.heartbeat.ts.usec, cfg.heartbeat.ts.rate = rtctime.get()
-				payload.notif="heartbeat"
+				-- read from AO
+				cfg.io.analog.inputs.A0 = adc.read(0)
+				payload.notif = "heartbeat"
 				payload.id = cfg.client_id
-				payload.content=content
-				payload.uptime=tmr.time()
-				payload.ts=cfg.heartbeat.ts
-				payload.io = cfg.io.digital
+				payload.content = content
+				payload.uptime = tmr.time()
+				payload.ts = cfg.heartbeat.ts
+				payload.io = cfg.io
 				payload.hs = node.heap()
-				cfg.client:publish(cfg.mqtt.topics.status, sjson.encode(payload), 0, 0)				
-				timer:alarm(cfg.heartbeat.interval, tmr.ALARM_SINGLE, function() flashMod("mc"):do_heartbeat("") end)
+				cfg.client:publish(cfg.mqtt.topics.status, sjson.encode(payload), 0, 0)
+				-- if deep sleep enabled
+				if cfg.deepSleep then
+					log_debug("Entering deep sleep for "..cfg.heartbeat.interval.." ms")
+					timer:alarm(200, tmr.ALARM_SINGLE, function() rtctime.dsleep(get_cfg().heartbeat.interval*1000) end)
+				else
+					timer:alarm(cfg.heartbeat.interval, tmr.ALARM_SINGLE, function() flashMod("mc"):do_heartbeat("") end)
+				end
 			end
 			cfg = nil
 		end,

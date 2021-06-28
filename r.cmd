@@ -1,3 +1,4 @@
+call nodemcu-tool run flashmod.lc
 call nodemcu-tool run main.lc
 call nodemcu-tool run mqtt_ioc.lc
 call nodemcu-tool run mqtt_core.lc

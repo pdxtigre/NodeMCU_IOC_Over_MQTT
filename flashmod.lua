@@ -5,7 +5,7 @@ function flash.flashMod(tbl)
 	for k,v in pairs(tbl) do
 		if type(v) == "function" then
 			local f = string.format("%s_%s.lc", tbl.MOD_NAME, k)
-			log_debug("Serializing flash module function "..f)
+			if dev_cfg ~= nil then log_debug("Serializing flash module function "..f) end
 			file.open(f, "w+")
 			file.write(string.dump(v))
 			file.close()
@@ -19,7 +19,7 @@ function flash.flashMod(tbl)
 	})
 end
 
-if dev_cfg.flashMod then flash.flashMod(flash) end
+if (dev_cfg ~= nil and dev_cfg.flashMod) or (dev_cfg == nil) then flash.flashMod(flash) end
 flash = nil
 module = nil
 package = nil

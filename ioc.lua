@@ -12,10 +12,12 @@ local ioc = {MOD_NAME="ioc"}
 
 function ioc:init(cfg)
 	log_debug("Initializing IO board..")
-	for k,v in pairs(cfg.io.digital.outputs) do
-		log_debug("Setting digital output "..v.pin)
-		gpio.mode(v.pin, gpio.OUTPUT)
-		gpio.write(v.pin, gpio.LOW)
+	if not cfg.deepSleep then
+		for k,v in pairs(cfg.io.digital.outputs) do
+			log_debug("Setting digital output "..v.pin)
+			gpio.mode(v.pin, gpio.OUTPUT)
+			gpio.write(v.pin, gpio.LOW)
+		end
 	end
 	for k,v in pairs(cfg.io.digital.inputs) do
 		log_debug("Setting digital input "..v.pin)

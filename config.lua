@@ -8,13 +8,13 @@
 -- website: https://codesmiths.org    --
 ----------------------------------------
 dev_cfg={
-	id="ESP8266.Shadow",
-	dob="04/18/2021",
+	id="ESP8266.Shadow.MoistureSensor",
+	dob="06/27/2021",
 	rev="3",
 	app="mqtt_ioc",
 	wifi={
-		ssid= "<your WiFi SSID>",
-		pwd= "<your WiFi password>"
+		ssid= "",
+		pwd= ""
 	},
 	mqtt={
 		host="TheShadowsHouse.IoT",
@@ -28,6 +28,8 @@ dev_cfg={
 	bootTime={sec=0, usec=0, rate=0},
 	debug=true,
 	start=true,
+	deepSleep=true,
+	flashMod=false,
 	heartbeat={
 		enabled=true,
 		interval=5000,
@@ -35,7 +37,8 @@ dev_cfg={
 	},
 	io={
 		digital=
-		{	outputs = {
+		{	outputs=
+			{
 				D0={pin=0},
 				D1={pin=1},
 				D2={pin=2},
@@ -46,6 +49,13 @@ dev_cfg={
 				D7={pin=7}
 			},
 			inputs = {}
+		},
+		analog=
+		{
+			inputs=
+			{
+				A0={pin=0}
+			}
 		}
 	}
 }

@@ -70,20 +70,18 @@ function main:start_wifi()
 	cfg = nil
 end
 
--- power test API
-function main:check_input_power()
-	if adc.force_init_mode(adc.INIT_VDD33) then
+function main:set_adc_mode()
+	if adc.force_init_mode(adc.INIT_ADC) then
 		node.restart()
 		return -- don't bother continuing, the restart is scheduled
 	end
-	vdd = adc.readvdd33()
-	log_debug("System voltage Vdd = "..vdd.." mV")
+	log_debug("ADC mode enabled")
 end
 
 -- main
 function main:start()
-	-- check the input power in case we power with battery
-	-- check_input_power()	
+	-- enable ADC mode
+	self:set_adc_mode()
 	-- start WiFi
 	collectgarbage()
 	try(function()

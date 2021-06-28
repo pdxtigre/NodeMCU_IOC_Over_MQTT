@@ -1,6 +1,7 @@
 call nodemcu-tool fsinfo
-call nodemcu-tool upload config.lua main.lua mqtt_ioc.lua mqtt_core.lua mqtt_extra.lua ioc.lua --compile
+call nodemcu-tool upload flashmod.lua config.lua main.lua mqtt_ioc.lua mqtt_core.lua mqtt_extra.lua ioc.lua --compile
 call nodemcu-tool run config.lc
+call nodemcu-tool run flashmod.lc
 call nodemcu-tool run main.lc
 call nodemcu-tool run mqtt_ioc.lc
 call nodemcu-tool run mqtt_core.lc
