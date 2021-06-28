@@ -21,6 +21,11 @@ The MQTT broker could reside on the Raspberry Pi or on a separate server using *
 <img src="/docs/images/HAP1.png" width="200" title="Sprinler Control via Apple Home - Yard View"/>
 <img src="/docs/images/HAP2.png" width="200" title="Sprinler Control via Apple Home - Sprinkler Status"/>
 
+#### Notes
+There are two branches in this repository:
+- The `master` branch is for the typical digital control such as a sprinkler system where the node module would run 24/7.  Typically, that would require the node to be powered via the grid power supply.
+- The `sensors` branch is for the sensor applications.  In this example, we utilize A0 pin to read an analog signal from a soil mosture sensor and perform a deep sleep at the heartbeat interval when the node is running outdoor on battery.
+
 ## SSR Control Board
 The sprinkler valve solenoids are controlled by the SSR control board which interfaces directly with the node module.  The schematic is based on the idea from [Nich Fugal](http://makeatronics.blogspot.com/2013/06/24v-ac-solid-state-relay-board.html) on his makeatronics blog.  
 
